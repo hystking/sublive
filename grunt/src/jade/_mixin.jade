@@ -1,0 +1,33 @@
+mixin img(src, alt, cls, id)
+  if(cls)
+    if(id)
+      img(class="#{cls}", id="#{id}", src="#{imageRoot}/#{src}", alt="#{alt}")
+    else
+      img(class="#{cls}", src="#{imageRoot}/#{src}", alt="#{alt}")
+  else if(id)
+    img(id="#{id}", src="#{imageRoot}/#{src}", alt="#{alt}")
+  else
+    img(src="#{imageRoot}/#{src}", alt="#{alt}")
+
+mixin figure(src, alt, cls, id)
+  if(cls)
+    if(id)
+      figure(class="#{cls}", id="#{id}")
+        +img(src, alt)
+    else
+      figure(class="#{cls}")
+        +img(src, alt)
+  else if(id)
+    figure(id="#{id}")
+      +img(src, alt)
+  else
+    figure
+      +img(src, alt)
+
+mixin socialButtons()
+  .social-buttons
+    .fb <div class="fb-like" data-href="#{share_url}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+    .tw <a href="https://twitter.com/share" class="twitter-share-button" data-url="#{share_url}" data-text="#{tweet_message}" data-lang="ja">ツイート</a>
+    .htn <a href="http://b.hatena.ne.jp/entry/#{share_url}" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+    .gp <div class="g-plusone" data-size="medium" data-href="#{share_url}"></div>
+    .line <span><script type="text/javascript" src="//media.line.me/js/line-button.js?v=20140411" ></script><script type="text/javascript">new media_line_me.LineButton({"pc":false,"lang":"ja","type":"a","text":"#{share_url}","withUrl":true});</script></span>

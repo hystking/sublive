@@ -1,0 +1,16 @@
+include _setting
+include _mixin
+doctype
+html
+  head
+    include _head
+    script(src="js/index.js?#{ts}")
+  body
+    #wrapper.wrapper
+      section#top
+        include section/_top
+      section#about
+        include section/_about
+      footer#footer
+        include section/_footer
+      include _social_roots

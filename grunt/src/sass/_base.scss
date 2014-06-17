@@ -1,0 +1,17 @@
+body{
+  background: #000;
+}
+.wrapper{
+  font-family: $fontGothic;
+  color: #fff;
+  font-size: 12px;
+  *{
+    position: relative;
+    @include box-sizing(border-box);
+  }
+  a{
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+  }
+}

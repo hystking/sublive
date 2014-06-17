@@ -1,0 +1,40 @@
+#editor{
+  font-family: Inconsolata,Consolas,"Courier New",Courier,Monaco,monospace;
+  background: black;
+  color: white;
+  padding-bottom: 6em;
+  p.line{
+    display: block;
+    min-height: 1.5em;
+    line-height: 1.5em;
+  }
+  .word{
+    white-space: pre-wrap;
+  }
+  .row-num{
+    display: inline-block;
+    width: 3.5em;
+    padding-left: 1em;
+    color: #888;
+  }
+
+  /*for js*/
+  .word.js{
+    &.type{
+      color: #8ff;
+      font-style: italic;
+    }
+    &.string:not(.end){
+      color: #ff8;  
+    }
+    &.keyword{
+      color: #f88;
+    }
+    &.numeric{
+      color: #88f;
+    }
+    &.comment{
+      color: #888;  
+    }
+  }
+}

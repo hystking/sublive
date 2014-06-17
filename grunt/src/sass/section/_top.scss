@@ -1,0 +1,17 @@
+#top{
+  text-align: center;
+  @include clearfix;
+  h1{
+    font-size: 78px;
+    font-family: 'Play', sans-serif;
+    margin: 60px;
+  }
+  h2{
+    font-size: 18px;
+    margin: 60px;
+    strong{
+      font-family: 'Play', sans-serif;
+      color: #8f8;
+    }
+  }
+}

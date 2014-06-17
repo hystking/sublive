@@ -1,0 +1,49 @@
+@mixin replaceImage($path, $scale: 1){
+  $width: image-width($path) * $scale;
+  $height: image-height($path) * $scale;
+  display: inline-block;
+  background: image-url($path) no-repeat;
+  @include background-size($width, $height);
+  width: $width;
+  height: $height;
+  text-indent: -9999px;
+}
+
+@mixin backgroundImage($path, $scale: 1){
+  $width: image-width($path) * $scale;
+  $height: image-height($path) * $scale;
+  background: image-url($path);
+  @include background-size($width, $height);
+}
+
+@mixin loadSprite($spr, $name, $scale: 1){
+  $sprPath: sprite-path($spr);
+  $width: floor(image-width(sprite-file($spr, $name)) * $scale);
+  $height: floor(image-height(sprite-file($spr, $name)) * $scale);
+  $pos: sprite-position($spr, $name);
+  $left: floor(nth($pos, 1) * $scale);
+  $top: floor(nth($pos, 2) * $scale);
+  background-position: $left $top;
+
+  width: $width;
+  height: $height;
+};
+
+@mixin loadSpriteAll($spr, $sprName, $scale: 1){
+  $sprImage: sprite-url($spr);
+  $sprPath: sprite-path($spr);
+  $sprWidth: floor(image-width($sprPath) * $scale);
+  $sprHeight: floor(image-height($sprPath) * $scale);
+  .#{$sprName}{
+    background:image-url($sprPath) no-repeat;
+    background-repeat: no-repeat;
+    @include background-size($sprWidth, $sprHeight);
+    display: inline-block;
+    text-indent: -9999px;
+  }
+  @each $fileName in sprite-names($spr){
+    .#{$sprName}.#{$fileName}{
+      @include loadSprite($spr, $fileName, $scale);
+    }
+  }
+}

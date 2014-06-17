@@ -1,0 +1,20 @@
+include _setting
+include _mixin
+doctype
+html
+  head
+    include _head
+    script(src="http://cdn.peerjs.com/0.3/peer.js")
+    script(src="js/app.js?#{ts}")
+    script(src="/socket.io/socket.io.js")
+  body
+    #wrapper.wrapper
+      header#header
+        include section/_header
+      .content-main
+        include section/_video
+        section#editor
+          include section/_editor
+      footer#footer
+        include section/_footer
+      include _social_roots
