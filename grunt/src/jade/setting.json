@@ -6,8 +6,8 @@
   "useGp": false,
   "useHtn": false,
 
-  "title": "Sublive",
+  "title": "Sublive!",
   "description": "SubliveはSublime Textを使って、簡単にだれでもライブコーディングができるサイトです。",
-  "shareUrl": "http://www.google.com/",
+  "shareUrl": "",
   "tweetMessage": "SubliveはSublime Textを使って、簡単にだれでもライブコーディングができるサイトです。"
 }
