@@ -27,8 +27,8 @@ app.get("/", function(req, res){
   res.sendfile("templates/index.html");
 });
 
-var namePtn = /^\/([a-zA-Z0-9_]+)$/;
-app.get(namePtn, function(req, res){
+var ptn_name = /^\/([a-zA-Z0-9_]+)$/;
+app.get(ptn_name, function(req, res){
 	var name_room = req.params[0];
 	console.log("get room: ", name_room);
 	var room = rm.getRoom(name_room);
@@ -40,7 +40,7 @@ app.get(namePtn, function(req, res){
   }
 });
 
-app.post(namePtn, function(req, res){
+app.post(ptn_name, function(req, res){
 	var name_room = req.params[0];
 	var url = "/"+name_room;
   var key = getRandomKey(16);
@@ -51,6 +51,4 @@ app.post(namePtn, function(req, res){
 });
 
 app.use(express.static(__dirname + "/htdocs"));
-var rm = new RoomManager(io, namePtn);
-
-rm.createRoom("test");
+var rm = new RoomManager(io, ptn_name);
