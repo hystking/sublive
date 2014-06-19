@@ -1,7 +1,0 @@
-//sample
-//use it like ".sample-kayac"
-@include loadSpriteAll(
-  sprite-map("square/*.png", $spacing: 1px, $layout: horizontal),
-  "spr-square",
-  1.0
-);
