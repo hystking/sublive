@@ -1,3 +1,5 @@
 node_modules
 .DS_Store
 .sass-cache
+plugin/sublime_text/backports
+plugin/sublime_text/tornado
